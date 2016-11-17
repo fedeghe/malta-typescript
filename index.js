@@ -22,12 +22,7 @@ function malta_typescript(o, options) {
 		start = new Date(),
 		msg,
         pluginName = path.basename(path.dirname(__filename)),
-		oldname = o.name,
-		doErr = function (e) {
-			console.log(('[ERROR on ' + o.name + ' using ' + pluginName + '] :').red());
-			console.dir(e);
-			self.stop();
-		};
+		oldname = o.name;
 
 	return function (solve, reject){
 		try {
@@ -41,7 +36,7 @@ function malta_typescript(o, options) {
 				self.notifyAndUnlock(start, msg);
 			});
 		} catch (err) {
-			doErr(err);
+			self.doErr(err, o, pluginName);
 		}
 	};
 }
