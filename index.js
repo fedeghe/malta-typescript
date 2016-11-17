@@ -21,27 +21,28 @@ function malta_typescript(o, options) {
 	var self = this,
 		start = new Date(),
 		msg,
-		oldname = o.name;
+        pluginName = path.basename(path.dirname(__filename)),
+		oldname = o.name,
+		doErr = function (e) {
+			console.log(('[ERROR on ' + o.name + ' using ' + pluginName + '] :').red());
+			console.dir(e);
+			self.stop();
+		};
 
 	return function (solve, reject){
-		var ls = child_process.spawn('tsc', [o.name]);
-		
-		ls.on('exit', function (code) {
-			o.name = o.name.replace(/\.ts$/, '.js');
-			o.content = fs.readFileSync(o.name) + "";
-			msg = 'plugin ' + path.basename(path.dirname(__filename)).white() + ' wrote ' + o.name;
-			fs.unlink(oldname);
-			solve(o);
-			self.notifyAndUnlock(start, msg);
-		});
-
-		ls.stdout.on('data', function(data) {
-			self.log_debug(data + "");
-		});
-
-		ls.stderr.on('error', function (data) {
-			self.log_err('stderr: ' + data);
-		});
+		try {
+			var ls = child_process.spawn('tsc', [o.name]);
+			ls.on('exit', function (code) {
+				o.name = o.name.replace(/\.ts$/, '.js');
+				o.content = fs.readFileSync(o.name) + "";
+				msg = 'plugin ' + pluginName.white() + ' wrote ' + o.name;
+				fs.unlink(oldname);
+				solve(o);
+				self.notifyAndUnlock(start, msg);
+			});
+		} catch (err) {
+			doErr(err);
+		}
 	};
 }
 malta_typescript.ext = 'ts';
