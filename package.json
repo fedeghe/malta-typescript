@@ -1,6 +1,6 @@
 {
   "name": "malta-typescript",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Malta plugin to live compile typescript",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "tsc": "^1.20150623.0",
-    "malta": ">=3.4.0"
+    "malta": ">=3.8.3"
   },
   "main": "./index.js"
 }
