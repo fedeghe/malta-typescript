@@ -31,7 +31,7 @@ function malta_typescript(o, options) {
 				o.name = o.name.replace(/\.ts$/, '.js');
 				o.content = fs.readFileSync(o.name) + "";
 				msg = 'plugin ' + pluginName.white() + ' wrote ' + o.name;
-				fs.unlink(oldname);
+				fs.unlink(oldname, () => {});
 				solve(o);
 				self.notifyAndUnlock(start, msg);
 			});
