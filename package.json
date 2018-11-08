@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "tsc": "^1.20150623.0",
-    "malta": ">=3.8.3"
+    "malta": ">=3.8.14"
   },
   "main": "./index.js"
 }
