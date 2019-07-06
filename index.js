@@ -36,6 +36,7 @@ function malta_typescript(o, options) {
 				self.notifyAndUnlock(start, msg);
 			});
 		} catch (err) {
+            reject(`Plugin ${pluginName} compilation error:\n${err}`);
 			self.doErr(err, o, pluginName);
 		}
 	};
