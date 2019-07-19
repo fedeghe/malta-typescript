@@ -1,28 +1,28 @@
 {
-  "name": "malta-typescript",
-  "version": "1.0.5",
-  "description": "Malta plugin to live compile typescript",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://fedeghe@github.com/fedeghe/malta-typescript.git"
-  },
-  "keywords": [
-    "malta",
-    "malta plugin",
-    "malta typescript",
-    "malta typescript plugin"
-  ],
-  "author": "Federico Ghedina <federico.ghedina@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fedeghe/malta-typescript/issues"
-  },
-  "dependencies": {
-    "malta": ">=3.8.14",
-    "tsc": "^1.20150623.0"
-  },
-  "main": "./index.js"
+    "name": "malta-typescript",
+    "version": "1.0.5",
+    "description": "Malta plugin to live compile typescript",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://fedeghe@github.com/fedeghe/malta-typescript.git"
+    },
+    "keywords": [
+        "malta",
+        "malta plugin",
+        "malta typescript",
+        "malta typescript plugin"
+    ],
+    "author": "Federico Ghedina <fedeghe@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/fedeghe/malta-typescript/issues"
+    },
+    "dependencies": {
+        "malta": ">=3.8.14",
+        "tsc": "^1.20150623.0"
+    },
+    "main": "./index.js"
 }
