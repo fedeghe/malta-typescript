@@ -18,16 +18,17 @@ var path = require('path'),
 
 function malta_typescript(o, options) {
 
-	var self = this,
+	const self = this,
 		start = new Date(),
-		msg,
         pluginName = path.basename(path.dirname(__filename)),
-		oldname = o.name;
+        oldname = o.name;
 
-	return function (solve, reject){
+    let msg;
+
+	return (solve, reject) => {
 		try {
-			var ls = child_process.spawn('tsc', [o.name]);
-			ls.on('exit', function (code) {
+			const ls = child_process.spawn('tsc', [o.name]);
+			ls.on('exit', () => {
 				o.name = o.name.replace(/\.ts$/, '.js');
 				o.content = fs.readFileSync(o.name) + "";
 				msg = 'plugin ' + pluginName.white() + ' wrote ' + o.name;

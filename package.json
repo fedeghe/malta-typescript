@@ -21,8 +21,7 @@
         "url": "https://github.com/fedeghe/malta-typescript/issues"
     },
     "dependencies": {
-        "malta": "4.0.4",
-        "tsc": "^1.20150623.0"
+        "malta": "4.1.3"
     },
     "main": "./index.js"
 }
